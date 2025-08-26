@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Search, Menu } from "lucide-react";
 import { useAuth } from "../../hooks/useAuth";
 import { useCart } from "../../hooks/useCart";
-
+import SearchBar from "../UI/SearchBar";
 export function Header() {
   const { cart } = useCart();
 
@@ -12,6 +12,13 @@ export function Header() {
       (total: number, item: any) => total + item.quantity,
       0
     ) || 0;
+
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const handleOpenSearch = () => {
+    // Lógica para abrir la barra de búsqueda
+    setSearchOpen(!searchOpen);
+  };
 
   return (
     <header className="bg-white shadow-sm border-b border-gray-200">
@@ -73,7 +80,10 @@ export function Header() {
               Gatos
             </Link>
           </div>
+          {searchOpen && <SearchBar />}
+
           <div className="flex space-x-2 overflow-x-auto py-3">
+            {/* Home */}
             <Link
               to="/"
               className="p-2 text-gray-600 hover:text-orange-600 transition-colors"
@@ -94,6 +104,13 @@ export function Header() {
                 <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
               </svg>
             </Link>
+            <button
+              onClick={handleOpenSearch} // tu función que abre la barra buscadora
+              className="p-2 text-gray-600 hover:text-orange-600 transition-colors"
+            >
+              <Search className="h-6 w-6" /> {/* ícono de búsqueda */}
+            </button>
+
             {/* Cart */}
             <Link
               to="/cart"
