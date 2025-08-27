@@ -62,20 +62,19 @@ export function Header() {
           </div>
         </div>
       </div>
-
       {/* Navigation */}
       <nav className="bg-gray-50 border-t border-gray-200">
-        <div className="container mx-auto px-6 flex justify-between items-center">
+        <div className="container bg-gradient-to-r from-orange-500 to-orange-600 text-white mx-auto px-6 flex justify-between items-center">
           <div className="flex space-x-8 overflow-x-auto py-3">
             <Link
-              to="/products?age_group=puppy"
-              className="whitespace-nowrap text-sm font-medium text-gray-700 hover:text-orange-600 transition-colors"
+              to="/perros"
+              className="whitespace-nowrap text-sm font-medium text-white-700 hover:text-orange-600 transition-colors"
             >
               Perros
             </Link>
             <Link
-              to="/offers"
-              className="whitespace-nowrap text-sm font-medium text-gray-700 hover:text-orange-600 transition-colors"
+              to="/gatos"
+              className="whitespace-nowrap text-sm font-medium text-white-700 hover:text-orange-600 transition-colors"
             >
               Gatos
             </Link>
@@ -98,7 +97,7 @@ export function Header() {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                className="lucide lucide-house-icon lucide-house"
+                className="lucide lucide-house-icon lucide-house text-white hover:text-orange-600"
               >
                 <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
                 <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -106,7 +105,7 @@ export function Header() {
             </Link>
             <button
               onClick={handleOpenSearch} // tu función que abre la barra buscadora
-              className="p-2 text-gray-600 hover:text-orange-600 transition-colors"
+              className="p-2  hover:text-orange-600 transition-colors text-white"
             >
               <Search className="h-6 w-6" /> {/* ícono de búsqueda */}
             </button>
@@ -114,7 +113,7 @@ export function Header() {
             {/* Cart */}
             <Link
               to="/cart"
-              className="relative p-2 text-gray-600 hover:text-orange-600 transition-colors"
+              className="relative p-2 hover:text-orange-600 transition-colors text-white"
             >
               <ShoppingCart className="h-6 w-6" />
               {cartItemsCount > 0 && (
